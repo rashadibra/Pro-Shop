@@ -1,10 +1,14 @@
 import "./App.css";
-import { Button } from "react-bootstrap";
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
     <>
-      <Button className="p-4 m-2 flex j-ce">click</Button>
+<Navbar/>
+<AppRoutes/>
+<Footer/>
     </>
   );
 }
