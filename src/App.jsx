@@ -1,14 +1,24 @@
 import "./App.css";
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import LoginModal from "./features/user/LoginModal"
+import RegisterModel from "./features/user/RegisterModal"
+import Footer from "./components/Footer";
 import AppRoutes from "./routes/AppRoutes";
-
+import DataContext from "./Context/Context";
 function App() {
+  const [showLogin, setShowLogin] = useState(false);
+
   return (
     <>
-<Navbar/>
-<AppRoutes/>
-<Footer/>
+      <DataContext.Provider value={{ showLogin, setShowLogin }}>
+        <Navbar />
+        <div className="pt-5">
+          <AppRoutes />
+        </div>
+        <LoginModal/>
+        <Footer />
+      </DataContext.Provider>
     </>
   );
 }
