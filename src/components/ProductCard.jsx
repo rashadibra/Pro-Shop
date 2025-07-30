@@ -1,16 +1,9 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import BasketLogo from "../assets/Basket-Logo.png";
 import "../App.css";
 function ProductCard() {
   return (
     <Card className="custom-card position-relative">
-      <img
-        src={BasketLogo}
-        style={{ width: "15%", right: "10px", top: "10px" }}
-        className="position-absolute cursor-pointer"
-        alt=""
-      />
       <Card.Img variant="top" src="https://picsum.photos/200" />
       <Card.Body>
         <Card.Title>sss</Card.Title>

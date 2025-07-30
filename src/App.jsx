@@ -1,11 +1,11 @@
 import "./App.css";
 import { useState } from "react";
 import Navbar from "./components/Navbar";
-import LoginModal from "./features/user/LoginModal"
-import RegisterModel from "./features/user/RegisterModal"
+import AuthModal from "./features/auth/AuthModalManager"
 import Footer from "./components/Footer";
 import AppRoutes from "./routes/AppRoutes";
 import DataContext from "./Context/Context";
+import {auth,db} from "./firebase/Firebase"
 function App() {
   const [showLogin, setShowLogin] = useState(false);
 
@@ -16,7 +16,7 @@ function App() {
         <div className="pt-5">
           <AppRoutes />
         </div>
-        <LoginModal/>
+        <AuthModal/>
         <Footer />
       </DataContext.Provider>
     </>
