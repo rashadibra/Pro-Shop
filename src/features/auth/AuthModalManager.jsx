@@ -6,18 +6,20 @@ function AuthModalManager() {
   const [showRegister, setShowRegister] = useState(false);
   const { showLogin, setShowLogin } = useContext(DataContext);
 
+  // Sign in Function
+
   return (
     <div>
       {!showRegister ? (
         <AuthModalContainer
           show={showLogin}
-          onHide="handleCloseLogin"
+          onHide={()=>setShowLogin(false)}
           title="Login"
           fields={[
-            { type: "email", placeholder: "Email" },
-            { type: "password", placeholder: "Password" },
+            { name:"email",type: "email", placeholder: "Email" },
+            { name:"password",type: "password", placeholder: "Password" },
           ]}
-          buttonText="Send Login"
+          buttonText="Send"
           googleText="Google ile giris edin"
           switchText={{ text: "hesabiniz yoxdur?", linkText: "register" }}
           onSwitch={() => {
@@ -27,21 +29,21 @@ function AuthModalManager() {
         />
       ) : (
         <AuthModalContainer 
-         show={showLogin}
-          onHide="handleCloseRegister"
+         show={showRegister}
+          onHide={()=>setShowRegister(false)}
           title="Register"
           fields={[
-            { type: "name", placeholder: "Name" },
-            { type: "email", placeholder: "Email" },
-            { type: "password", placeholder: "Password" },
-            { type: "password", placeholder: "Confirm Password" },
+            { name:"name",type: "text", placeholder: "Name" },
+            { name:"email",type: "email", placeholder: "Email" },
+            { name:"password",type: "password", placeholder: "Password" },
+            { name:"confirmPassword",type: "password", placeholder: "Confirm Password" },
           ]}
-          buttonText="Send Register"
+          buttonText="Send"
           googleText="Google ile qeydiyyatdan kecin"
           switchText={{ text: "hesabiniz var?", linkText: "login" }}
           onSwitch={() => {
-            setShowLogin(true);
             setShowRegister(false);
+            setShowLogin(true);
           }}
         />
       )}
